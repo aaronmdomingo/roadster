@@ -185,7 +185,7 @@ class Place {
       starRatingContainer.append($('<i>').addClass('far fa-star'));
       emptyStars--;
     }
-    starRatingContainer.append(`&nbsp;${rating}/5 stars (${userRatingsTotal} reviews)`);
+    starRatingContainer.append(`&nbsp;${rating.toFixed(1)}/5 stars (${userRatingsTotal} reviews)`);
     return starRatingContainer;
   }
 
