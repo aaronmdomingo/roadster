@@ -52,14 +52,14 @@ class Trip {
     const main = $('.main');
     let container = $('<div>').addClass('final__Container');
     main.empty();
-    console.log(placesArray);
     main.append(container);
     container.append($('<div>').text('ROADSTER').addClass('final__Logo'));
     container.append($('<div>').text('Your Trip').addClass('trip'));
     $('.trip').append('<br>').append($('<div>').addClass('route'));
     container.append($('<div>').addClass('final__List'));
     container.append($('<div>').addClass('final__Button'));
-  for(let i = 0; i < placesArray.length; i++){
+    let hasSelectedPlaces = 0;
+    for(let i = 0; i < placesArray.length; i++){
       let placeContainer, heading, ul;
       if (i !== 0) {
         let name = placesArray[i].waypointName;
@@ -75,10 +75,14 @@ class Trip {
       }
 
       if (placesArray[i].waypointSelectedPlaces.length) {
+        hasSelectedPlaces++;
         placeContainer.append(heading, ul);
       }
       $('.route').append($('<div>').text(`${placesArray[i].waypointName}`));
       $('.final__List').append(placeContainer);
+    }
+    if (!hasSelectedPlaces) {
+      $('.final__List').append('<div>').addClass('none__Selected').text('No restaurants selected');
     }
     let button = $('<button>').addClass('btn btn--green').text('Print').click(function () { window.print() });
     $('.final__Button').append(button)
