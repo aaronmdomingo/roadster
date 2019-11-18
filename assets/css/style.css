@@ -32,6 +32,10 @@ body {
   align-items: center;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 /*******************************
           FONTS
 *******************************/
@@ -554,28 +558,71 @@ body {
   display:flex;
   align-items: center;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top:5%;
+  justify-content: space-around;
+  padding: 2.5rem;
   font-family: interstate, sans-serif;
   font-style: normal;
   font-size:2rem;
 }
+
 .final__Container .trip{
-  width:80%;
+  width: 80%;
   text-align: center;
   font-size:3rem;
   padding-bottom:15px;
   border-bottom:5px solid #52de97;
 }
+
+.final__List {
+  height: 70%;
+  width: 60%;
+  background-color: rgb(255, 255, 255, 0.6);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5rem;
+  overflow: auto;
+}
+
+.final__Button {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .place__Container{
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
-  width:50%;
-  margin:25px;
+  width: 100%;
+  margin-bottom: 5rem;
 }
+
+.place__Container h1 {
+  margin: auto;
+}
+
+.place__Container li {
+  margin: 2rem;
+}
+
+.place__Container a {
+  text-decoration: underline;
+  color: #000000;
+}
+
+.place__Container a:active,
+.place__Container a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
 .final__Logo{
   font-weight: 700;
   font-size: 10rem;

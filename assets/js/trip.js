@@ -55,17 +55,23 @@ class Trip {
     main.append(container);
     container.append($('<div>').text('ROADSTER').addClass('final__Logo'));
     container.append($('<div>').text('Your Trip').addClass('trip'));
-    for(let i = 0; i < placesArray.length; i++){
+    container.append($('<div>').addClass('final__List'));
+    container.append($('<div>').addClass('final__Button'));
+    for(let i = 1; i < placesArray.length; i++){
       let placeContainer = $('<div>').addClass('place__Container');
       let name = placesArray[i].waypointName;
       let heading = $('<h1>').html(name);
       let ul = $('<ul>')
-      for(let place of placesArray[i].waypointSelectedPlaces){
-        let li = $('<li>').html(place);
+      for (var j = 0 ; j < placesArray[i].waypointSelectedPlaces.length ; j++) {
+        let a = $('<a>').attr('href', placesArray[i].waypointLinks[j]).text(`${placesArray[i].waypointSelectedPlaces[j]}`).attr('target', '_BLANK');
+        let li = $('<li>').html(a);
+        li.append('<br>').append(` ${placesArray[i].waypointAddress[j]}`);;
         ul.append(li);
       }
       placeContainer.append(heading, ul);
-      container.append(placeContainer);
+      $('.final__List').append(placeContainer);
+      let button = $('<button>').addClass('btn btn--green').text('Print').click(function() { window.print() });
+      $('.final__Button').append(button)
     }
   }
 
