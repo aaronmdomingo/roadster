@@ -6,6 +6,7 @@ class Trip {
   constructor(locations) {
     this.routeCallback = this.routeCallback.bind(this);
     this.placesCallback = this.placesCallback.bind(this);
+    this.printSpecificDiv = this.printSpecificDiv.bind(this);
 
     this.map = null;
     this.waypoints = [];
@@ -43,6 +44,14 @@ class Trip {
    */
   renderRoute() {
     this.route.render();
+  }
+
+  printSpecificDiv(element) {
+    let printContents = document.querySelector(element).innerHTML;
+    let originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
   }
 
   /** @method placesCallback
@@ -84,7 +93,7 @@ class Trip {
     if (!hasSelectedPlaces) {
       $('.final__List').append('<div>').addClass('none__Selected').text('No restaurants selected');
     }
-    let button = $('<button>').addClass('btn btn--green').text('Print').click(function () { window.print() });
+    let button = $('<button>').addClass('btn btn--green').text('Print').click(() => this.printSpecificDiv('.final__List'));
     $('.final__Button').append(button)
   }
 
