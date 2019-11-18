@@ -33,13 +33,14 @@ class Place {
       let currentSelection = {
         waypointName: this.waypointsArray[waypointIndex].location.name,
         waypointSelectedPlaces: [],
-        waypointLinks: []
+        waypointLinks: [],
+        waypointAddress: []
       };
       for (let selectionIndex = 0; selectionIndex < selectedPlacesObj.length; selectionIndex++) {
         if (selectedPlacesObj[selectionIndex].parentElement.previousElementSibling.innerText.includes(currentSelection.waypointName)) {
           currentSelection.waypointSelectedPlaces.push(selectedPlacesObj[selectionIndex].firstElementChild.nextElementSibling.firstElementChild.innerText);
           currentSelection.waypointLinks.push(selectedPlacesObj[selectionIndex].firstElementChild.nextElementSibling.firstElementChild.attributes[0].value);
-          console.log(selectedPlacesObj[selectionIndex].firstElementChild.nextElementSibling.firstElementChild.attributes[0].value);
+          currentSelection.waypointAddress.push(selectedPlacesObj[selectionIndex].firstElementChild.nextElementSibling.nextElementSibling.innerText)
         }
       }
       this.selectedPlaces.push(currentSelection);

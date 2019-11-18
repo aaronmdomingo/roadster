@@ -63,8 +63,9 @@ class Trip {
       let heading = $('<h1>').html(name);
       let ul = $('<ul>')
       for (var j = 0 ; j < placesArray[i].waypointSelectedPlaces.length ; j++) {
-        let a = $('<a>').attr('href', placesArray[i].waypointLinks[j]).text(placesArray[i].waypointSelectedPlaces[j]).attr('target', '_BLANK');
+        let a = $('<a>').attr('href', placesArray[i].waypointLinks[j]).text(`${placesArray[i].waypointSelectedPlaces[j]}`).attr('target', '_BLANK');
         let li = $('<li>').html(a);
+        li.append('<br>').append(` ${placesArray[i].waypointAddress[j]}`);;
         ul.append(li);
       }
       placeContainer.append(heading, ul);
