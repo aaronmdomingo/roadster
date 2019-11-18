@@ -6,6 +6,7 @@ class Trip {
   constructor(locations) {
     this.routeCallback = this.routeCallback.bind(this);
     this.placesCallback = this.placesCallback.bind(this);
+    this.printSpecificDiv = this.printSpecificDiv.bind(this);
 
     this.map = null;
     this.waypoints = [];
@@ -45,6 +46,14 @@ class Trip {
     this.route.render();
   }
 
+  printSpecificDiv(element) {
+    let printContents = document.querySelector(element).innerHTML;
+    let originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+  }
+
   /** @method placesCallback
       @param none
    */
@@ -55,23 +64,36 @@ class Trip {
     main.append(container);
     container.append($('<div>').text('ROADSTER').addClass('final__Logo'));
     container.append($('<div>').text('Your Trip').addClass('trip'));
+    $('.trip').append('<br>').append($('<div>').addClass('route'));
     container.append($('<div>').addClass('final__List'));
     container.append($('<div>').addClass('final__Button'));
-    for(let i = 1; i < placesArray.length; i++){
-      let placeContainer = $('<div>').addClass('place__Container');
-      let name = placesArray[i].waypointName;
-      let heading = $('<h1>').html(name);
-      let ul = $('<ul>')
-      for (var j = 0 ; j < placesArray[i].waypointSelectedPlaces.length ; j++) {
-        let a = $('<a>').attr('href', placesArray[i].waypointLinks[j]).text(`${placesArray[i].waypointSelectedPlaces[j]}`).attr('target', '_BLANK');
-        let li = $('<li>').html(a);
-        li.append('<br>').append(` ${placesArray[i].waypointAddress[j]}`);;
-        ul.append(li);
+    let hasSelectedPlaces = 0;
+    for(let i = 0; i < placesArray.length; i++){
+      let placeContainer, heading, ul;
+      if (i !== 0) {
+        let name = placesArray[i].waypointName;
+        placeContainer = $('<div>').addClass('place__Container');
+        heading = $('<h1>').html(name);
+        ul = $('<ul>')
+        for (var j = 0; j < placesArray[i].waypointSelectedPlaces.length; j++) {
+          let a = $('<a>').attr('href', placesArray[i].waypointLinks[j]).text(`${placesArray[i].waypointSelectedPlaces[j]}`).attr('target', '_BLANK');
+          let li = $('<li>').html(a);
+          li.append('<br>').append(` ${placesArray[i].waypointAddress[j]}`);;
+          ul.append(li);
+        }
       }
-      placeContainer.append(heading, ul);
+
+      if (placesArray[i].waypointSelectedPlaces.length) {
+        hasSelectedPlaces++;
+        placeContainer.append(heading, ul);
+      }
+      $('.route').append($('<div>').text(`${placesArray[i].waypointName}`));
       $('.final__List').append(placeContainer);
     }
-    let button = $('<button>').addClass('btn btn--green').text('Print').click(function () { window.print() });
+    if (!hasSelectedPlaces) {
+      $('.final__List').append('<div>').addClass('none__Selected').text('No restaurants selected');
+    }
+    let button = $('<button>').addClass('btn btn--green').text('Print').click(() => this.printSpecificDiv('.final__List'));
     $('.final__Button').append(button)
   }
 
