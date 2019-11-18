@@ -70,9 +70,9 @@ class Trip {
       }
       placeContainer.append(heading, ul);
       $('.final__List').append(placeContainer);
-      let button = $('<button>').addClass('btn btn--green').text('Print').click(function() { window.print() });
-      $('.final__Button').append(button)
     }
+    let button = $('<button>').addClass('btn btn--green').text('Print').click(function () { window.print() });
+    $('.final__Button').append(button)
   }
 
   /** @method renderPlaces
