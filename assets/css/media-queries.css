@@ -1,0 +1,110 @@
+/* big tablets to 1200 pixels */
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  /* .btn {
+    font-size: 1.5rem;
+  } */
+}
+
+/* Small tablets to big tablets from 768 - 1023 pixels */
+@media only screen and (max-width: 1023px) {
+  html {
+    font-size: 50%;
+  }
+
+}
+
+@media only screen and (max-width: 650px) {
+  html {
+    font-size: 45%;
+  }
+
+
+}
+
+/* Small Phones from 0-480 pixels */
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 40%
+  }
+
+  .landing__Video {
+    width: 100%;
+  }
+
+  .landing__SearchBox {
+    height: 35%;
+    padding: 1rem;
+  }
+
+  .landing__SearchBox-Start,
+  .landing__SearchBox-End {
+    width: 80%;
+  }
+
+  .landing__Search-Top {
+    flex-direction: column;
+    height: 70%;
+  }
+
+  .landing__SearchBox-Value {
+    height: 10%;
+  }
+
+  .map__Overlay {
+    width: 30%;
+    height: 99%;
+  }
+
+  .final__List {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .final__Container .trip {
+    width: 100%;
+  }
+
+}
+
+@media only screen
+and (max-width: 823px)
+and (max-height: 414px)
+and (orientation: landscape) {
+  html {
+    font-size: 40%
+  }
+
+  .places__Container {
+    height: 95%;
+    width: 95%;
+  }
+
+  .landing__SearchBox {
+    height: 50%;
+  }
+
+  .overlay__Card {
+    height: 5rem;
+  }
+
+  .places__ListItem {
+    height: 25%;
+  }
+
+  .btn {
+    padding: 0.5rem 2rem;
+  }
+
+  .final__Container {
+    padding: 1rem;
+  }
+
+  .final__List {
+    padding: 2rem;
+    height: 55%;
+  }
+}
