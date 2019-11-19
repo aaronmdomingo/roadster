@@ -40,7 +40,7 @@ Try the application live at https://roadster.aarondomingo.com
 
     ```shell
     git clone https://github.com/aaronmdomingo/roadster.git
-    cd gym-buddy
+    cd roadster
     ```
     
 2. Open the application in your browser
