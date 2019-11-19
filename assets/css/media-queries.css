@@ -130,4 +130,9 @@ and (orientation: landscape) {
     padding: 2rem;
     height: 55%;
   }
+
+  .landing__SearchBox-Value {
+    outline: none;
+    border-radius: 0px;
+  }
 }
