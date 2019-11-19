@@ -285,6 +285,12 @@ body {
   border:none;
 }
 
+.map__Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /*******************************
           PLACES

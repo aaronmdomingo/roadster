@@ -97,10 +97,10 @@ class Route {
 
       let button = $('<button>')
         .attr('type', 'submit')
-        .html('<i class="fas fa-plus-circle fa-2x"></i>')
+        .html('<i class="plus__icon fas fa-plus-circle"></i>')
         .on('click', this.createWaypoint);
 
-      let form = $('<form>').append(button, input)
+      let form = $('<form>').addClass('map__Form').append(button, input)
 
       title.append(form);
 
