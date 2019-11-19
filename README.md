@@ -27,3 +27,24 @@ Try the application live at https://roadster.aarondomingo.com
 ## Preview
 
 ![](/assets/demo/roadster.gif)
+
+## Development
+
+#### System Requirements
+
+- Google API Key
+
+#### Getting Started
+
+1. Clone the repository.
+
+    ```shell
+    git clone https://github.com/aaronmdomingo/roadster.git
+    cd gym-buddy
+    ```
+    
+2. Open the application in your browser
+
+    ```shell
+    open index.html
+    ```
