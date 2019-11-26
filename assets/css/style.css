@@ -376,7 +376,7 @@ body {
 }
 
 .places__ListItem {
-  height: 15%;
+  height: 10rem;
   width: 100%;
   display: flex;
   justify-content: space-around;
