@@ -79,7 +79,7 @@
   }
 
   .places__ListItem {
-    height: 20%;
+    height: 12.5rem;
   }
 
   .landing__SearchBox-Value {
@@ -115,7 +115,7 @@ and (orientation: landscape) {
   }
 
   .places__ListItem {
-    height: 25%;
+    height: 7.5rem;
   }
 
   .btn {
